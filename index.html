@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&family=Roboto:wght@500&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a class="burger" onclick="toggleMenu()">
+        <div class="icon1">
+            <i class="feather-32" data-feather="menu"></i>
+        </div>
+        <div class="icon2">
+            <i class="feather-32" data-feather="x"></i>
+        </div>
+    </a>
+    <div class="bacground"></div>
+    <div class="menu">
+        <nav>
+            <a href="#home" style="animation-delay: 0.2s;">Home</a>
+            <a href="#project" style="animation-delay: 0.2s;">Project</a>
+            <a href="#" style="animation-delay: 0.2s;">About</a>
+            <a href="#" style="animation-delay: 0.2s;">About</a>
+        </nav>
+    </div>
+    <main id="home">
+        <div class="content">
+
+            <div class="left_main">
+                <h2>Halo Saya <span>Alimuddin</span>
+                </h2>
+
+                <p>Seorang Junior Web Programmer yang masih dalam tahap belajar. </p>
+            </div>
+
+            <div class="right_main">
+                <h2>I`m</h2>
+                <div class="images">
+                    <img src="peakpx.jpg" alt="im">
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <main id="project">
+        <div class="project">
+            <h2>
+                My Project
+            </h2>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti esse in quibusdam veritatis vel
+                assumenda libero non eius eaque at voluptas nobis, nisi quam? Sequi esse laborum quos eligendi, id
+                minima rem temporibus repellendus dignissimos asperiores porro quam eius? Repellat, alias consequatur
+                aut accusantium repellendus soluta vel eveniet at ducimus molestiae. Facere repellat cumque fuga
+                sapiente aliquam ab, voluptas voluptatem neque saepe expedita consequuntur aperiam sunt! Facere esse,
+                reiciendis quas sed doloribus facilis quasi voluptatem nobis qui earum aut similique a, quos omnis animi
+                necessitatibus non asperiores sit rem totam? Earum delectus nemo ad harum laudantium ipsum voluptatibus
+                perferendis officia.
+            </p>
+        </div>
+    </main>
+    <main>
+        <div class="about">
+            <div class="about_details">
+                <div class="about_left">
+                    <div class="images_self">
+                        <img src="me.jpg" alt="me">
+                    </div>
+                    <h2 style="text-align: center;">Info</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat voluptate vel odit quaerat,
+                        cupiditate dignissimos harum reprehenderit minus sequi expedita eos! Nobis, nisi non deserunt
+                        modi natus numquam voluptatem explicabo enim sint neque impedit ut ratione aspernatur placeat,
+                        inventore cum?</p>
+                </div>
+                <div class="about_right">
+                    <h2>About Me</h2>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript">
+        feather.replace()
+        const toggleMenu = () =>
+            document.body.classList.toggle("open");
+    </script>
+</body>
+
+</html>
