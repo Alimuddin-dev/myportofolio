@@ -2,6 +2,11 @@ html,
 body {
   height: 100vh;
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+main {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 body {
   font-family: "Poppins", sans-serif;
@@ -81,7 +86,6 @@ body.open .menu {
 }
 .menu {
   z-index: 3;
-
   top: 0;
   left: 0;
   display: flex;
@@ -208,9 +212,14 @@ main {
 .project {
   width: 40%;
 }
+.project h2 {
+  color: aqua;
+  font-size: ;
+}
 /* about */
 .about {
   width: 100%;
+  margin-top: 150px;
   display: grid;
   place-items: center;
 }
@@ -235,28 +244,120 @@ main {
   width: 100%;
   margin-top: -50px;
 }
+.about_left p,
+.about_right p,
+.about_right h2 {
+  padding: 10px 7%;
+}
+.about_right h2 {
+  color: aqua;
+}
 .about_left img {
   width: 40%;
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 50%;
-  border: 10px solid #fff;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  border: 10px solid #000000;
+  box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
 }
 .about_right {
   width: 60%;
   height: 300px;
 }
+.social {
+  display: flex;
+  justify-content: center;
+}
+.social a {
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px;
+  color: aqua;
+}
 #project {
   margin-top: 100px;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1000px) {
   .content {
     flex-direction: column;
   }
   .left_main,
   .right_main {
     width: 100%;
+  }
+  .about_details {
+    flex-direction: column;
+  }
+  .about_left,
+  .about_right {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .burger {
+    display: none;
+  }
+  .menu {
+    display: block;
+    visibility: visible;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    transition: 0.05s;
+  }
+  .menu nav a:hover {
+    color: aqua;
+  }
+  body.menu nav:hover {
+    opacity: 0.25;
+    color: aqua;
+  }
+
+  body.menu nav > a:hover {
+    opacity: 1;
+    translate: 8px 0;
+  }
+
+  .menu nav {
+    background-color: #111;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .menu a {
+    position: relative;
+    color: #f9f9f9;
+    font-size: 32px;
+    padding: 20px 0 20px 40px;
+    text-decoration: none;
+    opacity: 1;
+    transition: 0.4s;
+  }
+
+  .menu a::after {
+    content: "";
+    position: absolute;
+    top: 50px;
+    right: -25px;
+    translate: 0 -50%;
+    width: 10px;
+    height: 10px;
+    border-top: 3px solid #ffffff;
+    border-right: 3px solid #ffffff;
+    opacity: 0;
+    rotate: 45deg;
+    transition: 0.3s;
+  }
+
+  .menu a:hover::after {
+    opacity: 1;
+    color: aqua;
   }
 }
