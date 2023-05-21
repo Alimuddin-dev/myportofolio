@@ -2,7 +2,6 @@ html,
 body {
   height: 100vh;
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
 }
 main {
   scroll-snap-align: start;
@@ -82,7 +81,7 @@ body.open .background {
 }
 body.open .menu {
   opacity: 1;
-  visibility: visible;
+  /* visibility: visible; */
 }
 .menu {
   z-index: 3;
@@ -90,8 +89,8 @@ body.open .menu {
   left: 0;
   display: flex;
   align-items: center;
-  height: 100%;
   width: 100%;
+  height: 100px;
   transition: 0.05s;
 }
 .menu nav a:hover {
@@ -123,26 +122,6 @@ body.menu nav > a:hover {
   text-decoration: none;
   opacity: 0;
   transition: 0.4s;
-}
-
-.menu a::after {
-  content: "";
-  position: absolute;
-  top: 50px;
-  right: -25px;
-  translate: 0 -50%;
-  width: 10px;
-  height: 10px;
-  border-top: 3px solid #ffffff;
-  border-right: 3px solid #ffffff;
-  opacity: 0;
-  rotate: 45deg;
-  transition: 0.3s;
-}
-
-.menu a:hover::after {
-  opacity: 1;
-  color: aqua;
 }
 @keyframes appear {
   0% {
@@ -209,31 +188,158 @@ main {
   color: aqua;
 }
 /* project */
+#project {
+  height: 100%;
+}
 .project {
   width: 40%;
+  height: 100%;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .project h2 {
   color: aqua;
-  font-size: ;
+  font-size: 1.2rem;
+  text-align: center;
 }
+.timeline {
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* Card container */
+.card {
+  position: relative;
+  max-width: 400px;
+}
+
+/* setting padding based on even or odd */
+.card:nth-child(odd) {
+  padding: 30px 0 30px 30px;
+}
+.card:nth-child(even) {
+  padding: 30px 30px 30px 0;
+}
+/* Global ::before */
+.card::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  border: solid aqua;
+}
+
+/* Setting the border of top, bottom, left */
+.card:nth-child(odd)::before {
+  left: 0px;
+  top: -4.5px;
+  bottom: -4.5px;
+  border-width: 5px 0 5px 5px;
+  border-radius: 50px 0 0 50px;
+}
+
+/* Setting the border of top, bottom, right */
+.card:nth-child(even)::before {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-width: 5px 5px 5px 0;
+  border-radius: 0 50px 50px 0;
+}
+
+/* Removing the border if it is the first card */
+.card:first-child::before {
+  border-top: 0;
+  border-top-left-radius: 0;
+}
+
+/* Removing the border if it is the last card  and it's odd */
+.card:last-child:nth-child(odd)::before {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Removing the border if it is the last card  and it's even */
+.card:last-child:nth-child(even)::before {
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Information about the timeline */
+.info {
+  display: flex;
+  flex-direction: column;
+  background: #333;
+  color: gray;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Title of the card */
+.title {
+  color: aqua;
+  position: relative;
+}
+.title a {
+  text-decoration: none;
+  color: aqua;
+  position: relative;
+}
+
+/* Timeline dot  */
+.title::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 999px;
+  border: 3px solid aqua;
+}
+
+/* text right if the card is even  */
+.card:nth-child(even) > .info > .title {
+  text-align: right;
+}
+
+/* setting dot to the left if the card is odd */
+.card:nth-child(odd) > .info > .title::before {
+  left: -45px;
+}
+
+/* setting dot to the right if the card is odd */
+.card:nth-child(even) > .info > .title::before {
+  right: -45px;
+}
+.timeline img {
+  width: 100%;
+  object-fit: cover;
+}
+/*  */
 /* about */
+#about {
+  margin-top: 1000px;
+}
 .about {
   width: 100%;
-  margin-top: 150px;
+  height: 100%;
+  margin-top: 110px;
   display: grid;
   place-items: center;
 }
 .about_details {
   display: flex;
   width: 60%;
-  height: 100vh;
   gap: 1.3rem;
+  border: 1px solid aqua;
+  border-radius: 10px;
 }
 .about_left {
   background-color: aqua;
   border-radius: 10px;
   width: 40%;
-  height: 500px;
+  height: 50%;
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -289,14 +395,46 @@ main {
   .about_details {
     flex-direction: column;
   }
+  .project {
+    width: 100%;
+  }
+  .menu {
+    height: 100%;
+    width: 100%;
+  }
+  .about_details {
+    border: none;
+  }
   .about_left,
   .about_right {
     width: 100%;
+  }
+  .menu a::after {
+    content: "";
+    position: absolute;
+    top: 50px;
+    right: -25px;
+    translate: 0 -50%;
+    width: 10px;
+    height: 10px;
+    border-top: 3px solid #ffffff;
+    border-right: 3px solid #ffffff;
+    opacity: 0;
+    rotate: 45deg;
+    transition: 0.3s;
+  }
+
+  .menu a:hover::after {
+    opacity: 1;
+    color: aqua;
   }
 }
 @media screen and (min-width: 1000px) {
   .burger {
     display: none;
+  }
+  .background {
+    z-index: 0;
   }
   .menu {
     display: block;
@@ -305,7 +443,6 @@ main {
     top: 0;
     left: 0;
     align-items: center;
-    height: 100%;
     width: 100%;
     transition: 0.05s;
   }
@@ -334,30 +471,10 @@ main {
   .menu a {
     position: relative;
     color: #f9f9f9;
-    font-size: 32px;
+    font-size: 1.2rem;
     padding: 20px 0 20px 40px;
     text-decoration: none;
     opacity: 1;
     transition: 0.4s;
-  }
-
-  .menu a::after {
-    content: "";
-    position: absolute;
-    top: 50px;
-    right: -25px;
-    translate: 0 -50%;
-    width: 10px;
-    height: 10px;
-    border-top: 3px solid #ffffff;
-    border-right: 3px solid #ffffff;
-    opacity: 0;
-    rotate: 45deg;
-    transition: 0.3s;
-  }
-
-  .menu a:hover::after {
-    opacity: 1;
-    color: aqua;
   }
 }
